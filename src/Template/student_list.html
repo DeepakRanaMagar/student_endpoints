@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <style>
+        th, td {
+            border: 1px solid black;
+            font-size: 20px;
+            padding: 5px;
+          }
+    </style>
+</head>
+<body>
+    <h1>All Student records</h1>
+    <table>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Grade</th>
+            <th>Major</th>
+            {%for student in students%}
+            <tr>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.address}}</td>
+                <td>{{student.get_grade_display}}</td>
+                <td>{{student.major}}</td>
+            </tr>
+            {%endfor%}
+   </table>
+   <h4><a href="add">Add records</a></h4>
+
+   {%if user.is_authenticated%}
+   <h4><a href="update">Update form</a></h4>
+
+   {%endif%}
+   <hr>
+</body>
+</html>
